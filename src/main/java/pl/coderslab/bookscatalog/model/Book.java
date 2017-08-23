@@ -9,6 +9,9 @@ public class Book {
     private String publisher;
     private String type;
 
+    public Book() {
+    }
+
     public Book(long id, String isbn, String title,
                 String author, String publisher, String type) {
         this.id = id;

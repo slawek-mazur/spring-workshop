@@ -3,41 +3,43 @@ package pl.coderslab.bookscatalog.respositories;
 import org.springframework.stereotype.Repository;
 import pl.coderslab.bookscatalog.model.Book;
 
-import java.util.Arrays;
-import java.util.Iterator;
-import java.util.List;
-import java.util.Optional;
+import java.util.*;
 
 @Repository
 public class BookRepository {
 
-    private List<Book> books =
-        Arrays.asList(
-            new Book(
-                1,
-                "978-83-7574-610-5",
-                "Pan lodowego ogrodu",
-                "Jarosław Grzędowicz",
-                "Fabryka Słów",
-                "fantastyka"
-            ),
-            new Book(
-                2,
-                "856-11-5290-610-5",
-                "Anioły i Demony",
-                "Down Brown",
-                "Cisz Company",
-                "powieść"
-            ),
-            new Book(
-                3,
-                "83-904230-6-5",
-                "Piąta góra",
-                "Paulo Coelho",
-                "Fabryka Słów",
-                "kryminał"
+    private List<Book> books = new ArrayList<>();
+
+    public BookRepository() {
+        books = new ArrayList<>(
+            Arrays.asList(
+                new Book(
+                    1,
+                    "978-83-7574-610-5",
+                    "Pan lodowego ogrodu",
+                    "Jarosław Grzędowicz",
+                    "Fabryka Słów",
+                    "fantastyka"
+                ),
+                new Book(
+                    2,
+                    "856-11-5290-610-5",
+                    "Anioły i Demony",
+                    "Down Brown",
+                    "Cisz Company",
+                    "powieść"
+                ),
+                new Book(
+                    3,
+                    "83-904230-6-5",
+                    "Piąta góra",
+                    "Paulo Coelho",
+                    "Fabryka Słów",
+                    "kryminał"
+                )
             )
         );
+    }
 
     public List<Book> all() {
         return books;
@@ -50,6 +52,11 @@ public class BookRepository {
             }
         }
         return Optional.empty();
+    }
+
+    public Book add(Book book) {
+        books.add(book);
+        return book;
     }
 
     public Book update(Book book) {
