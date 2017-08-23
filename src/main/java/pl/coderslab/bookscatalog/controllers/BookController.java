@@ -32,6 +32,11 @@ public class BookController {
         return bookRepository.add(book);
     }
 
+    @PutMapping
+    public Book update(@RequestBody Book book) {
+        return bookRepository.update(book);
+    }
+
     @DeleteMapping("/{id}")
     public Optional<Book> delete(@PathVariable long id) {
         return bookRepository.delete(id);
