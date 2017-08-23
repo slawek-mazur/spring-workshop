@@ -32,8 +32,8 @@ public class BookController {
         return bookRepository.add(book);
     }
 
-    @DeleteMapping
-    public Optional<Book> delete(long id) {
+    @DeleteMapping("/{id}")
+    public Optional<Book> delete(@PathVariable long id) {
         return bookRepository.delete(id);
     }
 }
